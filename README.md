@@ -1,9 +1,4 @@
-# Note Taker Starter Code
 # InStyle-Note-Taker
-
-__walkthrough video__
-![walkthrough video](./gif.gif)
-
 
 <h1 align="center">Hi 👋, I'm Tracee</h1>
 <h3 align="center">A full-stack developer from Utah.</h3>
