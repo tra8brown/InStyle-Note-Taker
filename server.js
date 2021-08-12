@@ -1,30 +1,40 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 const path = require('path');
 const fs = require('fs')
 
+app.use(express.static("public"))
+
+
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
+
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'));
+    res.sendFile(path.join(__dirname, './public/index.html'));
 })
 
 app.get('/notes', function(req, res) {
-    res.sendFile(path.join(__dirname, '/public/notes.html'));
+    res.sendFile(path.join(__dirname, './public/notes.html'));
 });
 
 app.post('/api/notes', function(req, res) {
-    var title = req.body.title,
-        note = req.body.note;
-    // ...
-    var obj = JSON.parse(fs.readFileSync(path.join(__dirname, '/db/db.json'), 'utf8'));
-    var myJsonArrayObject = JSON.stringify([objectString]);
 
-    //add a new element to the array: parse the JSON, push the new element and stringify again:
-    JSON.stringify(JSON.parse(myJsonArrayObject).push({ "test": "testval", "title": "testtitle" }));
+    // ...
+    var obj = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+
+
+    console.log(req.body, obj)
+    obj.push(req.body)
+        //add a new element to the array: parse the JSON, push the new element and stringify again:
+    fs.writeFileSync("./db/db.json", JSON.stringify(obj));
+    res.json(obj)
 });
 
 app.get('/api/notes', function(req, res) {
-    var obj = JSON.parse(fs.readFileSync(path.join(__dirname, '/db/db.json'), 'utf8'));
+    var obj = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
     res.json(obj);
 });
 
