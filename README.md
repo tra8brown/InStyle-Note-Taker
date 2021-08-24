@@ -1,4 +1,12 @@
 # InStyle-Note-Taker
+* this application was built for the purpose of making notes and saving them
+
+![note-taker screenshot](screenshot.png)
+
+Heroku: https://instyle-notetaker.herokuapp.com/
+Github URL: https://github.com/tra8brown/InStyle-Note-Taker
+Live URL: https://tra8brown.github.io/InStyle-Note-Taker/
+
 
 <h1 align="center">Hi 👋, I'm Tracee</h1>
 <h3 align="center">A full-stack developer from Utah.</h3>
